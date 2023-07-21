@@ -1,0 +1,48 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %} {% block content %}
+<style>
+  form {
+    border: 1px solid black;
+    width: fit-content;
+    margin: 0px 10px 10px 10px;
+    padding: 15px;
+  }
+  .search_query_box h2 {
+    margin: 0;
+  }
+  .search_result_box {
+    border: 1px solid black;
+    width: fit-content;
+    margin: 10px;
+    padding: 15px;
+    background: #f4f4f4;
+  }
+  .search_result_box li {
+    font-weight: normal;
+  }
+  .search_result_box li:first-of-type {
+    font-weight: bold;
+  }
+</style>
+
+<form method="get" class="search_query_box">
+  <h2>Merriam Webster Dictionary</h2>
+
+  {{ form.as_p }}
+  <button type="submit">Search</button>
+</form>
+{% endblock %}
+<hr />
+{% comment %}
+<p>{{search_result}}</p>
+{% endcomment %} {% comment %} {% endcomment %} {% comment %} {% endcomment %}
+
+<div class="search_result_box">
+  <ul>
+    <h3>Definition</h3>
+    <h3>{{ search_result.fl }}</h3>
+
+    {% for definition in search_result.shortdef %}
+    <li>{{definition}}</li>
+    {% endfor %}
+  </ul>
+</div>
