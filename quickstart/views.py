@@ -5,6 +5,7 @@ from .forms import DictionaryForm
 
 
 def dictionary(request):
+    is_cached = ('geodata' in request.session)
     search_result = {}
     if 'word' in request.GET:
         form = DictionaryForm(request.GET)
@@ -13,5 +14,6 @@ def dictionary(request):
     else:
         form = DictionaryForm()
         search_result[0] = {}
+
     if (len(search_result)):
         return render(request, 'dictionary.html', {'form': form, 'search_result': search_result[0]})
