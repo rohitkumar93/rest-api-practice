@@ -1,6 +1,9 @@
 # rest-api-practice
 
-A repo to practise latest REST api methods
+A repo to practise latest REST api methods.
+
+A  virtual env is recommended. Install dependencies using requirements.txt for backend, and npm install after going in Frontend/ folder.
+Run `python manage.py runserver` in the root folder to start the backend, and run `npm start` in Frontend/Frontend folder after running `npm install` and `pip install -r requirements.txt` in the correct directories.
 
 Tasks left to be done:
 
