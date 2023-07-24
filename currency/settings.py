@@ -30,8 +30,16 @@ INSTALLED_APPS = [
     'quickstart',
     'piggybank',
     'rest_framework.authtoken',
-    'todo'
+    'todo',
+    'new_todo',
+    'corsheaders',
 ]
+
+# White listing the localhost:3000 port to avoid cors errors if any
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -41,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'currency.urls'
@@ -65,8 +74,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 10,
 
 }
 
@@ -127,4 +136,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 DICTIONARY_KEY = config('DICTIONARY_KEY', default='')
-print('DICTIONARY_KEY', DICTIONARY_KEY)
+# print('DICTIONARY_KEY', DICTIONARY_KEY)
