@@ -45,7 +45,7 @@ class TodoDefineView(APIView):
             result = response_data[0]['shortdef']
         else:
             if response.status_code == 404:  # NOT FOUND
-                result['message'] = 'No entry found for "%s"' % word
+                result['message'] = 'No entry found for "%s"' % obj.title
             else:
                 result['message'] = 'The Merriam Webster dicitonary API is not available at the moment or we have hit the daily limit. Please try again later.'
         return result
