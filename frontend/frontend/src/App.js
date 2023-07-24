@@ -77,7 +77,9 @@ class App extends Component {
         </span>
         <span
           onClick={() => this.displayCompleted(false)}
-          className={this.state.viewCompleted ? "" : "active"}
+          className={
+            this.state.viewCompleted && !this.state.viewAll ? "" : "active"
+          }
         >
           Incomplete
         </span>
@@ -113,7 +115,7 @@ class App extends Component {
             //   : "todo-title mr-2 completed-todo"
             title={item.description}
           >
-            {String(item.completed)}_{item.title}
+            {item.title}
           </span>
           <span>
             <button
@@ -150,7 +152,6 @@ class App extends Component {
             title={item.description}
           >
             {item.title}
-            {String(item.completed)}
           </span>
           <span>
             <button
